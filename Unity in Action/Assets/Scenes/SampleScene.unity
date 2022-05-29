@@ -1684,6 +1684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 0
+  sensitivityHor: 10
+  sensitivityVert: 9
+  minimumVert: -45
+  maximumVert: 45
 --- !u!1 &1582183601
 GameObject:
   m_ObjectHideFlags: 0
