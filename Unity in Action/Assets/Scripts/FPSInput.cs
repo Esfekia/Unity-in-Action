@@ -12,6 +12,6 @@ public class FPSInput : MonoBehaviour
         // horizontal and vertical are indirect names for keyboard mappings
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaZ = Input.GetAxis("Vertical") * speed;
-        transform.Translate(deltaX, 0, deltaZ);
+        transform.Translate(deltaX * Time.deltaTime, 0, deltaZ * Time.deltaTime);
     }
 }

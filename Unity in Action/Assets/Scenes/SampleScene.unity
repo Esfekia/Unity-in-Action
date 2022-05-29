@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632d1f5b5cab75a4d981b7179d1bc04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 1
+  axes: 0
   sensitivityHor: 10
   sensitivityVert: 9
   minimumVert: -45
@@ -1701,7 +1701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e34b6e908a07744a1eca71088de883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 1
 --- !u!1 &1582183601
 GameObject:
   m_ObjectHideFlags: 0
