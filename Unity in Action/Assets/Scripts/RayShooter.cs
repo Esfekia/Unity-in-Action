@@ -38,6 +38,10 @@ public class RayShooter : MonoBehaviour
                 // check for the ReactiveTarget component on the object
                 if (target != null)
                 {
+                    // call a method of the target
+                    target.ReactToHit();
+                    
+                    // display on console that target was hit
                     Debug.Log("Target hit!");
                 }
                 else

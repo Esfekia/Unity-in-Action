@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // first set up the method that is called by the RayShooter script
+
+    public void ReactToHit()
     {
-        
+        StartCoroutine(Die());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Die()
     {
-        
+        // topple the enemy, wait 1.5 seconds, and then destroy the enemy.
+        this.transform.Rotate(-75, 0, 0);
+
+        yield return new WaitForSeconds(1.5f);
+
+        Destroy(this.gameObject);        
     }
 }
