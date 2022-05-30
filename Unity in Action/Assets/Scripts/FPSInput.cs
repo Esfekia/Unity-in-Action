@@ -24,10 +24,15 @@ public class FPSInput : MonoBehaviour
 
         // limit diagonal movement to the same speed as movement along an axis
         movement = Vector3.ClampMagnitude(movement, speed);
-        
+
+        movement *= Time.deltaTime;
+
+        // transform the movement vector from local to gloval coordinates
+        movement = transform.TransformDirection(movement);
+
         // tell the CharacterController to move by that vector
         charController.Move(movement);
-        //transform.Translate(deltaX * Time.deltaTime, 0, deltaZ * Time.deltaTime);       
+              
                 
     }
 }
