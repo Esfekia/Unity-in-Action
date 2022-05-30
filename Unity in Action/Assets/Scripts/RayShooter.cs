@@ -17,7 +17,7 @@ public class RayShooter : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // use the center of the screen which is half its width and height
-            Vector3 point = new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2, 0);
+            Vector3 point = new Vector3(cam.pixelWidth/2, cam.pixelHeight/2, 0);
 
             // create the ray at that position by using ScreenPointToRay()
             Ray ray = cam.ScreenPointToRay(point);
@@ -27,9 +27,22 @@ public class RayShooter : MonoBehaviour
             // fill a referenced variable with information from the raycast
             if (Physics.Raycast(ray, out hit))
             {
-                // retreive the coordinates where the ray hit
-                Debug.Log("Hit" + hit.point);
+                // launch a coroutine in response to a hit
+                StartCoroutine(SphereIndicator(hit.point));
             }
         }
+    }
+
+    private IEnumerator SphereIndicator(Vector3 pos)
+    {
+        // create a sphere at pos
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = pos;
+
+        // the yield keyword tells coroutines where to pause
+        yield return new WaitForSeconds(1);
+
+        // destroy the sphere after 1 seconds
+        Destroy(sphere);
     }
 }
