@@ -5,6 +5,7 @@ using UnityEngine;
 public class FPSInput : MonoBehaviour
 {
     public float speed = 6.0f;
+    public float gravity = -9.8f;
 
     // variable for referencing the CharacterController
     private CharacterController charController;
@@ -24,6 +25,10 @@ public class FPSInput : MonoBehaviour
 
         // limit diagonal movement to the same speed as movement along an axis
         movement = Vector3.ClampMagnitude(movement, speed);
+
+        // use gravity value
+
+        movement.y = gravity;
 
         movement *= Time.deltaTime;
 
