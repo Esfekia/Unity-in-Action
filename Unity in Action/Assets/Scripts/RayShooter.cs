@@ -9,6 +9,10 @@ public class RayShooter : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
+
+        // lock mouse and hide mouse cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
         
     void Update()
@@ -44,5 +48,15 @@ public class RayShooter : MonoBehaviour
 
         // destroy the sphere after 1 seconds
         Destroy(sphere);
+    }
+
+    private void OnGUI()
+    {
+        int size = 12;
+        float posX = cam.pixelWidth / 2 - size / 4;
+        float posY = cam.pixelHeight / 2 - size / 2;
+
+        // display text on screen through GUI.Label()
+        GUI.Label(new Rect(posX, posY, size, size), "*");
     }
 }
