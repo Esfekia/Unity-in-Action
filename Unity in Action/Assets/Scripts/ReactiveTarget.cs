@@ -8,6 +8,13 @@ public class ReactiveTarget : MonoBehaviour
 
     public void ReactToHit()
     {
+        WanderingAI behavior = GetComponent<WanderingAI>();
+        
+        //check if this character has a WanderingAI script, it might not
+        if (behavior != null)
+        {
+            behavior.SetAlive(false);
+        }
         StartCoroutine(Die());
     }
 
