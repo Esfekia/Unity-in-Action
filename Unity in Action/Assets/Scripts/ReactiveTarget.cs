@@ -18,6 +18,7 @@ public class ReactiveTarget : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
+        // a script can destroy itself (just as it could a separate object)
         Destroy(this.gameObject);        
     }
 }
