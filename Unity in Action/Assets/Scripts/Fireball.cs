@@ -20,7 +20,7 @@ public class Fireball : MonoBehaviour
         // check if the other object is a PlayerCharacter
         if (player != null)
         {
-            Debug.Log("Player hit!");
+            player.Hurt(damage);
         }
         Destroy(this.gameObject);              
     }

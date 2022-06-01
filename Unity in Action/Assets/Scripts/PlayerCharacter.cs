@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private int health;
+
+    private void Start()
     {
-        
+        // initialize the health value
+        health = 5;    
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Hurt(int damage)
     {
-        
+        // decrement player's health
+        health -= damage;
+
+        // construct the message by using string interpolation
+        Debug.Log($"Health: {health}");
     }
+
 }
