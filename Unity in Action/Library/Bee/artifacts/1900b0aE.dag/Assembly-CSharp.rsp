@@ -352,6 +352,7 @@
 "Assets/Scripts/Fireball.cs"
 "Assets/Scripts/FPSInput.cs"
 "Assets/Scripts/MouseLook.cs"
+"Assets/Scripts/PlayerCharacter.cs"
 "Assets/Scripts/RayShooter.cs"
 "Assets/Scripts/ReactiveTarget.cs"
 "Assets/Scripts/SceneController.cs"

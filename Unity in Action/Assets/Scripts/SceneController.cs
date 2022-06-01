@@ -6,13 +6,14 @@ public class SceneController : MonoBehaviour
 {
     // serialized variable for linking to the prefab object
     [SerializeField] GameObject enemyPrefab;
-    
-    // private variable to keep track of the enemy instance in the scene
+        
+    // private variable to keep track of the enemy instances in the scene
     private GameObject enemy;
-
-     // Update is called once per frame
+    
+    // Update is called once per frame
     void Update()
     {
+                
         // spawn new enemy only of one isn't already in the scene
         if (enemy == null)
         {
