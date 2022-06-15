@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RayShooter : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class RayShooter : MonoBehaviour
         
     void Update()
     {
-        // respond to the left mouse button
-        if (Input.GetMouseButtonDown(0))
+        // respond to the left mouse button, but also chech that GUI isn't being used.
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             // use the center of the screen which is half its width and height
             Vector3 point = new Vector3(cam.pixelWidth/2, cam.pixelHeight/2, 0);
