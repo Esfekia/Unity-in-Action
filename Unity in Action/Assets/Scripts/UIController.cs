@@ -7,10 +7,13 @@ public class UIController : MonoBehaviour
 {
     // reference the Text object in the scene to set the text property
     [SerializeField] TMP_Text scoreLabel;
+
+    [SerializeField] SettingsPopup settingsPopup;
    
     void Start()
     {
-        
+        // close the menu pop-up when the game starts
+        settingsPopup.Close();
     }
       
     void Update()
@@ -20,7 +23,10 @@ public class UIController : MonoBehaviour
 
     public void OnOpenSettings()
     {
-        Debug.Log("open settings");
+        //Debug.Log("open settings");
+        // replace the debug text with the pop-up's method
+        settingsPopup.Open();
+
     }
     public void OnPointerDown()
     {

@@ -1021,6 +1021,7 @@ GameObject:
   - component: {fileID: 647419164}
   - component: {fileID: 647419166}
   - component: {fileID: 647419165}
+  - component: {fileID: 647419167}
   m_Layer: 5
   m_Name: PopUp
   m_TagString: Untagged
@@ -1086,6 +1087,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647419163}
   m_CullTransparentMesh: 1
+--- !u!114 &647419167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647419163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d6b540029a2264da510640614ac43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &668766450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreLabel: {fileID: 1981697919}
+  settingsPopup: {fileID: 647419167}
 --- !u!1 &1763571403
 GameObject:
   m_ObjectHideFlags: 0
