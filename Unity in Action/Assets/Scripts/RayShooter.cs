@@ -12,8 +12,8 @@ public class RayShooter : MonoBehaviour
         cam = GetComponent<Camera>();
 
         // lock mouse and hide mouse cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
         
     void Update()
