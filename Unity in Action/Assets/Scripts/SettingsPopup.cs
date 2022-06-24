@@ -16,4 +16,18 @@ public class SettingsPopup : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    // triggers when the user types in the input field
+    public void OnSubmitName(string name)
+    {
+        Debug.Log(name);
+    }
+
+    // triggers when the user adjusts the slider
+
+    public void OnSpeedValue(float speed)
+    {
+        Debug.Log($"Speed: {speed}");
+    }
+
 }
