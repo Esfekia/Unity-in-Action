@@ -41,6 +41,9 @@ public class RayShooter : MonoBehaviour
                 {
                     // call a method of the target
                     target.ReactToHit();
+
+                    // message broadcast
+                    Messenger.Broadcast(GameEvent.ENEMY_HIT);
                     
                     // display on console that target was hit
                     Debug.Log("Target hit!");

@@ -9,17 +9,30 @@ public class UIController : MonoBehaviour
     [SerializeField] TMP_Text scoreLabel;
 
     [SerializeField] SettingsPopup settingsPopup;
-   
+    private int score;
+
+    private void OnEnable()
+    {
+        // declare which method responds to the ENEMY_HIT event.
+        Messenger.AddListener(GameEvent.ENEMY_HIT, OnEnemyHit);
+    }
+
+    private void OnDisable()
+    {
+        // when an object is deactivated, remove the listener to avoid errors.
+        Messenger.RemoveListener(GameEvent.ENEMY_HIT, OnEnemyHit);
+    }
+
     void Start()
     {
         // close the menu pop-up when the game starts
         settingsPopup.Close();
+
+        // initialize the score to zero and display it on the UI
+        score = 0;
+        scoreLabel.text = score.ToString();
     }
-      
-    void Update()
-    {
-        scoreLabel.text = Time.realtimeSinceStartup.ToString();
-    }
+    
 
     public void OnOpenSettings()
     {
@@ -31,5 +44,12 @@ public class UIController : MonoBehaviour
     public void OnPointerDown()
     {
         Debug.Log("pointer down");
+    }
+
+    private void OnEnemyHit()
+    {
+        // increase the score in response to the event
+        score += 1;
+        scoreLabel.text = score.ToString();
     }
 }
