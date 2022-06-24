@@ -10,13 +10,32 @@ public class FPSInput : MonoBehaviour
     public float speed = 6.0f;
     public float gravity = -9.8f;
 
+    // defining the base again for adjusting with the speed setting in the ui
+    public const float baseSpeed = 6.0f;
+
     // variable for referencing the CharacterController
     private CharacterController charController;
+
+    private void OnEnable()
+    {
+        // supporting a value in the listener is as simple as adding a type definition, such as the <float> below.
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+    private void OnDisable()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
 
     private void Start()
     {
         // access the CharacterController attached to this object
         charController = GetComponent<CharacterController>();
+    }
+
+    // method that was declared in listener for event SPEED_CHANGED
+    private void OnSpeedChanged(float value)
+    {
+        speed = baseSpeed * value;
     }
 
     void Update()

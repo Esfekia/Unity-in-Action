@@ -8,6 +8,9 @@ public class WanderingAI : MonoBehaviour
     public float speed = 3.0f;
     public float obstacleRange = 5.0f;
 
+    // base speed that is adjusted by the speed setting in the settings menu
+    public const float baseSpeed = 3.0f;
+
     // serialized variable for linking to the prefab object
     [SerializeField] GameObject fireballPrefab;
 
@@ -17,9 +20,25 @@ public class WanderingAI : MonoBehaviour
     // check if the enemy is alive
     private bool isAlive;
 
+    private void OnEnable()
+    {
+        // supporting a value in the listener is as simple as adding a type definition, such as the <float> below.
+        Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+    private void OnDisable()
+    {
+        Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
+    }
+
     private void Start()
     {
         isAlive = true;
+    }
+
+    // method that was declared in listener for event SPEED_CHANGED
+    private void OnSpeedChanged(float value)
+    {
+        speed = baseSpeed * value;
     }
     public void SetAlive(bool alive)
     {

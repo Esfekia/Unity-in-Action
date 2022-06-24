@@ -41,6 +41,9 @@ public class SettingsPopup : MonoBehaviour
 
         // save it for future play sessions
         PlayerPrefs.SetFloat("Speed", speed);
+
+        // send slider value as <float> event
+        Messenger<float>.Broadcast(GameEvent.SPEED_CHANGED, speed);
     }
 
 }
